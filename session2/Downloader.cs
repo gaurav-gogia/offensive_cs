@@ -7,17 +7,9 @@ namespace session2
     {
         public string Download(string url)
         {
-            try
-            {
-                WebClient client = new WebClient();
-                Console.WriteLine("Download Complete.");
-                return client.DownloadString(url);
-            }
-
-            catch (Exception e)
-            {
-                return e.Message;
-            }
+            WebClient client = new WebClient();
+            Console.WriteLine("Download Complete.");
+            return client.DownloadString(url);
         }
     }
 }
