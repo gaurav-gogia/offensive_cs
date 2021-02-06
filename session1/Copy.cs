@@ -8,9 +8,9 @@ namespace session1
         [DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Auto)]
         public static extern bool CopyFile(string src, string dst, bool failOnExist);
 
-        public void DoCopy()
+        public void DoCopy(string src, string dst, bool failOnExist)
         {
-            bool res = CopyFile(@"C:\Users\mew\Desktop\test\a.txt", @"C:\Users\mew\Desktop\test\c.txt", true);
+            bool res = CopyFile(src, dst, failOnExist);
             if (res)
                 Console.WriteLine("Done!");
             else
