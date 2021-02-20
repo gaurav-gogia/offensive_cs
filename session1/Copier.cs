@@ -1,3 +1,4 @@
+using System;
 using System.Runtime.InteropServices;
 
 namespace session1
@@ -7,9 +8,22 @@ namespace session1
         [DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Auto)]
         public static extern bool CopyFile(string src, string dst, bool failOnExist);
 
+        [DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Auto)]
+        public static extern bool CopyFileExW(string src, string dst, IntPtr state, IntPtr data, bool cancel, CopyFlags flags);
+
+        [DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Auto)]
+        public static extern uint LpprogressRoutine(long totalSize, long bytesTransferred, long streamSize, long streamBytesTransferred, uint streamNumber, uint callbackReason, UIntPtr sourceFile, UIntPtr dstFile, IntPtr data);
+
+
         public string Copy(string src, string dst, bool failOnExist)
         {
             bool res = CopyFile(src, dst, failOnExist);
+            return res ? "Done!" : "Could not overwrite file or some other error";
+        }
+
+        public string CopyEx(string src, string dst)
+        {
+            bool res = CopyFileExW(src, dst, IntPtr.Zero, IntPtr.Zero, false, CopyFlags.COPY_FILE_NO_BUFFERING);
             return res ? "Done!" : "Could not overwrite file or some other error";
         }
     }

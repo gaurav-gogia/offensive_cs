@@ -10,9 +10,13 @@ namespace session1
         static void Main(string[] args)
         {
             Copier copier = new Copier();
-            string restext = copier.Copy(src, dst, false);
+            string restext = copier.Copy(src, dst, true);
 
             MsgBox box = new MsgBox();
+            box.Show("CopyFile Response", restext);
+
+            restext = copier.CopyEx(src, dst);
+
             box.Show("CopyFile Response", restext);
 
             Console.ReadKey();
