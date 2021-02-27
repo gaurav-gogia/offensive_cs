@@ -1,6 +1,6 @@
-using System;
+﻿using System;
 
-namespace session3
+namespace OffensiveCS.Flags
 {
     [Flags]
     enum ProcessAccessLevel

@@ -1,11 +1,11 @@
-using System;
+﻿using System;
 using System.Net;
 
-namespace session2
+namespace OffensiveCS
 {
     class WebAttacker
     {
-        public void DefaultCredsAttack(string url)
+        public static void DefaultCredsAttack(string url)
         {
             HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
 

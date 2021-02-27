@@ -1,5 +1,8 @@
-namespace session3
+﻿using System;
+
+namespace OffensiveCS.Flags
 {
+    [Flags]
     enum MemoryProtection
     {
         PAGE_EXECUTE = 0x10,

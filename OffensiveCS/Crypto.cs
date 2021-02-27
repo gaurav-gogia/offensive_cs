@@ -1,8 +1,8 @@
-using System;
+﻿using System;
 using System.IO;
 using System.Security.Cryptography;
 
-namespace session3
+namespace OffensiveCS
 {
     class Crypto
     {
@@ -45,9 +45,9 @@ namespace session3
                 ICryptoTransform transform = aes.CreateDecryptor(aes.Key, aes.IV);
 
                 using (MemoryStream memoryStream = new MemoryStream(cipdata))
-                    using (CryptoStream cryptoStream = new CryptoStream(memoryStream, transform, CryptoStreamMode.Read))
-                        using (StreamReader streamReader = new StreamReader(cryptoStream))
-                            data = streamReader.ReadToEnd();
+                using (CryptoStream cryptoStream = new CryptoStream(memoryStream, transform, CryptoStreamMode.Read))
+                using (StreamReader streamReader = new StreamReader(cryptoStream))
+                    data = streamReader.ReadToEnd();
             }
 
             return data;

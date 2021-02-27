@@ -1,5 +1,8 @@
-namespace session1
+﻿using System;
+
+namespace OffensiveCS.Flags
 {
+    [Flags]
     public enum CopyFlags
     {
         COPY_FILE_ALLOW_DECRYPTED_DESTINATION = 0x00000008,

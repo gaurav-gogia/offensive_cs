@@ -1,11 +1,10 @@
-using System;
-using System.Net;
+﻿using System.Net;
 
-namespace session2
+namespace OffensiveCS
 {
     class Downloader
     {
-        public string Download(string url)
+        public static string Download(string url)
         {
             WebClient client = new WebClient();
             return client.DownloadString(url);
